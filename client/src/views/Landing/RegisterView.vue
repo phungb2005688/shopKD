@@ -3,20 +3,30 @@
     <form @submit="(e) => register(e)" class="register-box">
       <h1 class="text-black text-2xl font-bold mb-4">ĐĂNG KÝ</h1>
       <div class="box shadow bg-white w-80 border-2 rounded space-y-4 flex flex-col p-5">
-        <!-- <input type="text" 
-            class="input-field border rounded-xl outline-none px-3 py-2" placeholder="Họ và tên"
-          /> -->
-        <input type="text" v-model="user.username" class="input-field border rounded-xl outline-none px-3 py-2"
+        <input type="text" v-model="user.fullname" 
+          class="input-field border rounded-xl outline-none px-3 py-2"
+          placeholder="Họ và tên" />
+
+        <input type="text" v-model.trim="user.username" 
+          class="input-field border rounded-xl outline-none px-3 py-2"
           placeholder="Tên tài khoản" />
-        <input type="password" v-model="user.password" class="input-field border rounded-xl outline-none px-3 py-2"
+
+        <input type="password" v-model.trim="user.password" 
+          class="input-field border rounded-xl outline-none px-3 py-2"
           placeholder="Mật khẩu" />
-        <!-- <select  class="border rounded-xl outline-none px-3 py-2">
-            <option value="Erkak">Nam</option>
-            <option value="Ayol">Nữ</option>
+
+        <!-- <select v-model="user.gender" class="border  outline-none px-3 py-2">
+            <option selected disabled>Chọn giới tính</option>
+            <option value="Nam">Nam</option>
+            <option value="Nu">Nữ</option>
           </select> -->
-        <button :disabled="loading"
-          class="button bg-gray-500 transition border border-gray-500 text-white rounded p-2 px-4 font-bold
-            hover:bg-black hover:border-black disabled:bg-gray-300 disabled:cursor-default disabled:border-none" type="submit">
+        <select v-model="user.gender" class="border rounded-xl outline-none px-3 py-2">
+          <option selected value="Nam">Nam</option>
+          <option value="Nu">Nữ</option>
+        </select>
+        <button :disabled="loading" class="button bg-gray-500 transition border border-gray-500 text-white rounded p-2 px-4 font-bold
+            hover:bg-black hover:border-black disabled:bg-gray-300 disabled:cursor-default disabled:border-none"
+          type="submit">
           Đăng ký
         </button>
       </div>
@@ -36,6 +46,8 @@ const store = useStore();
 const user = reactive({
   username: "",
   password: "",
+  fullname: "",
+  gender: ""
 });
 
 const loading = computed(() => {

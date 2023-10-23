@@ -10,6 +10,26 @@ const userSchema = new Schema({
         type: String,
         require: true,
     },
+    fullname: {
+        type: String,
+        require: true,
+    },
+    gender: {
+        type: String,
+        require: true,
+    },
+    age: {
+        type: String,
+        default: ""
+    },
+    address: {
+        type: String,
+        default: ""
+    },
+    phone: {
+        type: String,
+        default: ""
+    },
 },
     { timestamps: true }
 );

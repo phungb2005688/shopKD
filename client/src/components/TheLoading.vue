@@ -17,12 +17,15 @@
 </template>
 
 <style scoped>
+.loading-roller{
+  z-index: 9999999999999999999999999999;
+}
 .lds-roller {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
-  transform: scale(0.5);
+  width: 50px;
+  height: 50px;
+  transform: scale(0.4);
 }
 .lds-roller div {
   animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -32,10 +35,10 @@
   content: " ";
   display: block;
   position: absolute;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #000;
+  background: #0EA5E9;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {

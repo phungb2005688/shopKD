@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import ExploreView from "../layouts/ExploreView.vue";
 import LandingView from "../layouts/LandingView.vue";
 import HomeView from "../views/Explore/HomeView.vue";
+import AccountView from "../views/Explore/AccountView.vue"
 import RegisterView from "../views/Landing/RegisterView.vue";
 import LoginView from "../views/Landing/LoginView.vue";
 import IndexView from "../views/Landing/IndexView.vue";
@@ -47,6 +48,11 @@ const routes = [
         path: "",
         name: "Home",
         component: HomeView,
+      },
+      {
+        path: "account",
+        name: "Acounnt",
+        component: AccountView,
       }
     ],
     beforeEnter: (to, from, next) => {

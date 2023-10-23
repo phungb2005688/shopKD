@@ -3,9 +3,9 @@
         <form @submit="(e) => login(e)" class="login-box">
             <h1 class="text-black text-2xl font-bold mb-4">ĐĂNG NHẬP</h1>
             <div class="box shadow bg-white w-80 border-2 rounded-xl space-y-5 flex flex-col p-5">
-                <input v-model="user.username" type="text" class="input-field border outline-none px-3 py-2 rounded-xl"
+                <input v-model.trim="user.username" type="text" class="input-field border outline-none px-3 py-2 rounded-xl"
                     placeholder="Tên tài khoản" />
-                <input v-model="user.password" type="password" class="input-field border outline-none px-3 py-2 rounded-xl"
+                <input v-model.trim="user.password" type="password" class="input-field border outline-none px-3 py-2 rounded-xl"
                     placeholder="Mật khẩu" />
                 <button :disabled="loading"
                     class="button bg-gray-500 transition border border-gray-500 text-white rounded p-2 px-4 font-bold

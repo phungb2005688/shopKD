@@ -17,6 +17,11 @@ export default createStore({
     },
     setToast(state, payload) {
       state.toast = payload;
+      setTimeout(() => {
+        state.toast.show = false
+        state.toast.type = ''
+        state.toast.msg = ''
+      }, 4000)
     },
   },
   actions: {},

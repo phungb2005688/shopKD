@@ -4,8 +4,10 @@ const cors = require("cors");
 
 const app = express();
 
+//Built-Inn middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
+// Thirrd-party middleware
 app.use(cors({ origin: "*" }));
 
 mongoose.connect(
@@ -22,7 +24,8 @@ app.get("/", (req,res) => {
     res.send("kkkkkkkkkk");
 });
 
-app.use("/auth", require("./routes/auth"));
+app.use("/api/v1/auth", require("./routes/auth"));
+app.use("/api/v1/accounts", require("./routes/accounts"));
 
 app.listen(5000, () => {
     console.log("Server started!!");
