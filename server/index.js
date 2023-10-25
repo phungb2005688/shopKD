@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -11,7 +12,8 @@ app.use(express.json());
 app.use(cors({ origin: "*" }));
 
 mongoose.connect(
-    "mongodb+srv://phungnguyen:phung9996@cluster0.2w78veq.mongodb.net/?retryWrites=true&w=majority"
+    // "mongodb+srv://phungnguyen:phung9996@cluster0.2w78veq.mongodb.net/?retryWrites=true&w=majority"
+    process.env.DB_URI
     )
     .then(() =>{
       console.log("Connected database");  
@@ -27,6 +29,6 @@ app.get("/", (req,res) => {
 app.use("/api/v1/auth", require("./routes/auth"));
 app.use("/api/v1/accounts", require("./routes/accounts"));
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server started!!");
 });
